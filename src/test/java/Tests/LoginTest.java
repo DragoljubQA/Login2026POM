@@ -61,7 +61,6 @@ public class LoginTest extends BaseTest {
         loginPage.inputUsername(invalidUsername);
         loginPage.inputPassword(validPassword);
         loginPage.clickOnSubmitButton();
-        profilePage.clickOnLogOutButton();
         wait.until(ExpectedConditions.visibilityOf(loginPage.getError()));
         Assert.assertTrue(loginPage.getError().isDisplayed());
         Assert.assertEquals(loginPage.getError().getText(), "Your username is invalid!");
@@ -72,7 +71,6 @@ public class LoginTest extends BaseTest {
         loginPage.inputUsername(validUsername);
         loginPage.inputPassword(invalidPassword);
         loginPage.clickOnSubmitButton();
-        profilePage.clickOnLogOutButton();
         wait.until(ExpectedConditions.visibilityOf(loginPage.getError()));
         Assert.assertTrue(loginPage.getError().isDisplayed());
         Assert.assertEquals(loginPage.getError().getText(), "Your password is invalid!");
